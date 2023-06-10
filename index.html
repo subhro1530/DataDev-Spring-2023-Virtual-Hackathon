@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Real-time Data Visualization Dashboard</title>
+  <script src="https://public.tableau.com/javascripts/api/tableau-2.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div id="tableauViz"></div>
+
+  <script>
+    function initViz() {
+      var containerDiv = document.getElementById("tableauViz");
+      var url = "https://YOUR_TABLEAU_SERVER/views/YOUR_DASHBOARD";
+
+      var options = {
+        width: "100%",
+        height: "800px",
+        hideTabs: true,
+        hideToolbar: true,
+        onFirstInteractive: function () {
+          console.log("Dashboard is loaded and interactive");
+        }
+      };
+
+      var viz = new tableau.Viz(containerDiv, url, options);
+    }
+
+    document.addEventListener("DOMContentLoaded", initViz);
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
